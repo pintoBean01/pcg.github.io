@@ -51,7 +51,7 @@
                     <h1>Mission</h1>
                 </div>
             </div>
-            <div class="word-box">
+            <div class="word-box" style="border-style: none;">
                 <div class="box">
                     <h1>About Us</h1>
                 </div>
@@ -160,16 +160,58 @@
     <section class="testimony">
         <div>
             <div class="carousel">
-                <div class="card"><h3>Card 1</h3></div>
-                <div class="card"><h3>Card 2</h3></div>
-                <div class="card"><h3>Card 3</h3></div>
-                <div class="card"><h3>Card 4</h3></div>
-                <div class="card"><h3>Card 5</h3></div>
-                <div class="card"><h3>Card 6</h3></div>
-                <div class="card"><h3>Card 7</h3></div>
-                <div class="card"><h3>Card 8</h3></div>
-            </div>
+                <div class="card"><h3>Testimonial 1</h3></div>
+                <div class="card"><h3>Testimonial 2</h3></div>
+                <div class="card"><h3>Testimonial 3</h3></div>
+                <div class="card"><h3>Testimonial 4</h3></div>
+                <div class="card"><h3>Testimonial 5</h3></div>
+                <div class="card"><h3>Testimonial 6</h3></div>
+                <div class="card"><h3>Testimonial 7</h3></div>
+                <div class="card"><h3>Testimonial 8</h3></div>
+            
+                <a class="prev" onclick="plusCard(-1)">←</a>
+                <a class="next" onclick="plusCard(1)">→</a>
+            </div>     
         </div>
+
+        <div style="text-align: center;">
+            <span class="dot" onclick="currentCard(1)"></span>
+            <span class="dot" onclick="currentCard(2)"></span>
+            <span class="dot" onclick="currentCard(3)"></span>
+            <span class="dot" onclick="currentCard(4)"></span>
+            <span class="dot" onclick="currentCard(5)"></span>
+            <span class="dot" onclick="currentCard(6)"></span>
+            <span class="dot" onclick="currentCard(7)"></span>
+            <span class="dot" onclick="currentCard(8)"></span>
+        </div>
+        <script>
+            let cardIndex = 1;
+            showCard(cardIndex);
+
+            function plusCard(n) {
+                showCard(cardIndex += n);
+            }
+
+            function currentCard(n) {
+                showCard(cardIndex = n);
+            }
+
+            function showCard(n) {
+            let i;
+            let card = document.getElementsByClassName("card");
+            let dots = document.getElementsByClassName("dot");
+            if (n > card.length) {cardIndex = 1}    
+            if (n < 1) {cardIndex = card.length}
+            for (i = 0; i < card.length; i++) {
+                card[i].style.display = "none";  
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            card[cardIndex-1].style.display = "block";  
+            dots[cardIndex-1].className += " active";
+            }
+        </script>
     </section>
 
     
@@ -199,7 +241,7 @@
               <li>
                 <a href="#">ambar@pintos-consulting.com</a>
               </li>
-              <li style="color: var(--cream-color);">Phone: (571) 263-6971</li>
+              <li>Phone: (571) 263-6971</li>
               <li><a href="https://www.linkedin.com/in/ambarpinto/">LinkedIn</a></li>
             </ul>
           </div>
