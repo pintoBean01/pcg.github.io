@@ -7,12 +7,13 @@
 
 :root{
     --cream-color: #EFECDF;
-    --rose-color: #E088A1;
+    /* --rose-color: #E088A1;
     --blue-accent: #86A7F6;
-    --green-color: #3E5938;
+    --green-color: #3E5938; */
     --black-color: #272D2D;
     --one-color: #EFECDF;
-    --two-color: #4DAF52;
+    --green-color: #4DAF52;
+    --light-green: rgb(100, 197, 105);
     --three-color: #FFE700;
     --four-color: #FCC0E5;
     --five-color: #FD4EBB;
@@ -55,6 +56,7 @@ img {
     position: sticky;
     top: 0;
     background-color: var(--cream-color);
+    z-index: 100;
 }
 
 .navbar .container {
@@ -111,12 +113,123 @@ img {
   border-color: var(--black-color);
 }
 .main-content .word-box .box{
-  background-color: var(--two-color);
+  background-color: var(--green-color);
   color: var(--cream-color);
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
+/* Tile Option Section */
+.main-content .tile-container{
+  /* width: 100%; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0px 100px 50px 100px;
+  margin-bottom: 50px;
+}
+
+.tile{
+  margin: 100px auto 0;
+  width: 600px;
+  height: 600px;
+  perspective: 1000px;
+}
+
+.tile_inner{
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+}
+
+.tile_inner.is-flipped{
+  transform: rotateY(180deg);
+}
+
+.tile_face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, .2);
+}
+
+.tile_face-front {
+  background-image: linear-gradient(to bottom right, var(--six-color), var(--three-color));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tile_face-front h2{
+  color: var(--black-color);
+  font-size: 32px;
+}
+
+.tile_face-back {
+  background-color: var(--black-color);
+  transform: rotateY(180deg);
+  padding: 15px;
+}
+
+.tile_content{
+  width: 100%;
+  height: 100%;
+  color: var(--cream-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Vertical Option Section */
+.main-content .bg-drk {
+  background-color: var(--green-color);
+}
+
+.main-content .bg-light {
+  background-color: var(--light-green);
+}
+
+.main-content .vertical .block{
+  /* background-color: var(--two-color); */
+  padding: 15px;
+  margin: auto;
+  width: 80%;
+}
+
+.main-content .vertical .block .row{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.main-content .vertical .block .row .name{
+  text-transform: uppercase;
+  font-weight: bolder;
+  -webkit-box-flex: 0;
+  flex: 0 0 33.33%;
+  max-width: 33.33%;
+  /* position: relative; */
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.main-content .vertical .block .row .info{
+  -webkit-box-flex: 0;
+  flex: 0 0 66.6667%;
+  max-width: 66.6667%;
+  /* position: relative; */
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
 
 /* About Section*/
 
@@ -242,7 +355,7 @@ img {
 
 .clients .client-box .client{
   display: inline-block;
-  animation: 25s slide infinite linear;
+  animation: 35s slide infinite linear;
 }
 
 .clients .client-box .client img{
@@ -250,6 +363,17 @@ img {
   max-width: none;
   height: 50px;
   margin: 0 40px;
+}
+
+.clients .client-box .client p {
+  display: inline-block;
+  max-width: none;
+  margin: 0 40px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: larger;
+  /* font-family: 'Cormorant Garamond', sans-serif; */
 }
 
 
