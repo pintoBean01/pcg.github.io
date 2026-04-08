@@ -145,7 +145,11 @@ img {
   position: relative;
 }
 
-.tile_inner.is-flipped{
+/* .tile_inner.is-flipped{
+  transform: rotateY(180deg);
+} */
+
+.tile_inner:hover{
   transform: rotateY(180deg);
 }
 
@@ -185,6 +189,38 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Circle option section */
+
+.circle-container {
+  padding: 15px;
+  width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-row: auto;
+  gap: 10px;
+  row-gap: 20px;
+}
+
+.circle {
+  width: 400px;
+  height: 400px;
+  background-color: var(--three-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green-color);
+}
+
+/* .circle .heading{
+  font-size: 32px;
+} */
+
+.circle-info {
+  margin-top: 10px;
 }
 
 /* Vertical Option Section */
