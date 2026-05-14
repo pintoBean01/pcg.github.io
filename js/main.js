@@ -1,6 +1,9 @@
-const tile = document.querySelectorAll(".tile_inner");
+const menuToggle = document.querySelector(".menu-toggle");
+const mainMenu = document.querySelector(".main-menu");
 
-function flipTile() {
-  this.classList.toggle("is-flipped");
-}
-tile.forEach((tile) => tile.addEventListener("click", flipTile));
+menuToggle.addEventListener("click", () => {
+  mainMenu.classList.toggle("active");
+
+  // Optional: Animate hamburger to X
+  menuToggle.classList.toggle("is-active");
+});
